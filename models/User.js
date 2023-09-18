@@ -21,7 +21,7 @@ const userSchema = new Schema(
         friendCount: {
             type: Number,
             required: true,
-            default: 0,
+            default: thoughts.length,
         },
     },
     {
