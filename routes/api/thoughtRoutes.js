@@ -3,12 +3,12 @@ const router = require('express').Router();
 const {
     getSingleThought,
     deleteThought,
-    getThoughts,
     updateThought,
+    getAllThoughts
 } = require('../../controllers/thoughtController');
 
 // /api/thoughts
-router.route('/').get(getThoughts);
+router.route('/').get(getAllThoughts);
 
 // /api/thoughts/:thoughtId
 router

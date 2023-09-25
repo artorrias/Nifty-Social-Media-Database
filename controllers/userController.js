@@ -63,6 +63,21 @@ module.exports = {
         }
     },
 
+    async getThoughts(req, res) {
+        try {
+            const thoughts = await Thought.find({ userId: req.params.userId }).select('-__v');
+
+            const thoughtObj = {
+                thoughts,
+            };
+
+            res.json(thoughtObj);
+        } catch (err) {
+            console.log(err);
+            return res.status(500).json(err);
+        }
+    },
+
     //add thought to a user
     async addThought(req, res) {
         console.log('You are adding a thought');

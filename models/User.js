@@ -7,21 +7,20 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        thoughts: [thoughtSchema],
-        friends: [
+        thoughts: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'User'
+                ref: 'Thought'
+            }
+        ],
+        friends: [
+            {
+                type: String            
             }
         ],
         email: {
             type: String,
             required: true,
-        },
-        friendCount: {
-            type: Number,
-            required: true,
-            default: thoughts.length,
         },
     },
     {

@@ -64,6 +64,22 @@ module.exports = {
         }
     },
 
+    //get all thoughts
+    async getAllThoughts(req, res) {
+        try {
+            const thoughts = await Thought.find().select('-__v');
+
+            const thoughtObj = {
+                thoughts,
+            };
+
+            res.json(thoughtObj);
+        } catch (err) {
+            console.log(err);
+            return res.status(500).json(err);
+        }
+    },
+
     //update a thought
     async updateThought(req, res) {
         try {
